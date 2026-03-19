@@ -2,6 +2,45 @@
 
 Reusable Codex sub-agent skill for researching and troubleshooting Microsoft Power Apps code apps.
 
+## Install In Codex
+
+Codex loads local skills from your Codex home skills directory.
+
+On Windows, the usual target is:
+
+```powershell
+$CODEX_HOME\skills\powerapps-codeapps-explorer
+```
+
+### Option 1: Clone, then copy the skill folder
+
+```powershell
+git clone https://github.com/ranjith7022/powerapps-codeapps-explorer-agent.git
+Copy-Item -Recurse -Force .\powerapps-codeapps-explorer-agent\powerapps-codeapps-explorer "$env:CODEX_HOME\skills\powerapps-codeapps-explorer"
+```
+
+### Option 2: Copy from this local workspace
+
+```powershell
+Copy-Item -Recurse -Force .\powerapps-codeapps-explorer "$env:CODEX_HOME\skills\powerapps-codeapps-explorer"
+```
+
+### Verify
+
+Confirm this file exists after copying:
+
+```powershell
+Get-Item "$env:CODEX_HOME\skills\powerapps-codeapps-explorer\SKILL.md"
+```
+
+### Use
+
+Invoke it by name in Codex:
+
+```text
+Use $powerapps-codeapps-explorer to research a Power Apps code apps deployment issue.
+```
+
 ## What is included
 
 - `powerapps-codeapps-explorer/SKILL.md`
