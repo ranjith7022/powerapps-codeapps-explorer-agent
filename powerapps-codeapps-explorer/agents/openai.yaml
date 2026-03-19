@@ -1,0 +1,4 @@
+interface:
+  display_name: "PowerApps Code Apps Explorer"
+  short_description: "Research and troubleshoot Power Apps code apps."
+  default_prompt: "Use $powerapps-codeapps-explorer to research Power Apps code apps docs, repo patterns, and GitHub signals for this task."
