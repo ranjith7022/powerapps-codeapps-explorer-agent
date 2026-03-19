@@ -1,0 +1,65 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Codex: Install PowerApps Skill",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "if (-not $env:CODEX_HOME) { throw 'CODEX_HOME is not set.' }; Copy-Item -Recurse -Force '${workspaceFolder}\\powerapps-codeapps-explorer' \"$env:CODEX_HOME\\skills\\powerapps-codeapps-explorer\""
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Codex: Verify PowerApps Skill",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        "if (-not $env:CODEX_HOME) { throw 'CODEX_HOME is not set.' }; Get-Item \"$env:CODEX_HOME\\skills\\powerapps-codeapps-explorer\\SKILL.md\" | Format-List FullName,Length,LastWriteTime"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Codex: Refresh GitHub Signals",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}\\powerapps-codeapps-explorer\\scripts\\fetch_repo_signals.py",
+        "--repo",
+        "microsoft/PowerAppsCodeApps",
+        "--issues-limit",
+        "12",
+        "--discussions-limit",
+        "12",
+        "--format",
+        "markdown"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "Codex: Refresh GitHub Signals (JSON)",
+      "type": "shell",
+      "command": "python",
+      "args": [
+        "${workspaceFolder}\\powerapps-codeapps-explorer\\scripts\\fetch_repo_signals.py",
+        "--repo",
+        "microsoft/PowerAppsCodeApps",
+        "--issues-limit",
+        "12",
+        "--discussions-limit",
+        "12",
+        "--format",
+        "json"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

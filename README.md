@@ -41,6 +41,19 @@ Invoke it by name in Codex:
 Use $powerapps-codeapps-explorer to research a Power Apps code apps deployment issue.
 ```
 
+## Use From VS Code
+
+Open this repo in VS Code and run the bundled tasks from `Terminal` -> `Run Task`.
+
+Available tasks:
+
+- `Codex: Install PowerApps Skill`
+- `Codex: Verify PowerApps Skill`
+- `Codex: Refresh GitHub Signals`
+- `Codex: Refresh GitHub Signals (JSON)`
+
+These tasks live in `.vscode/tasks.json`.
+
 ## What is included
 
 - `powerapps-codeapps-explorer/SKILL.md`
